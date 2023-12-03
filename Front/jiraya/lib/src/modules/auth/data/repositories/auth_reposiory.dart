@@ -1,0 +1,12 @@
+import 'package:dartz/dartz.dart';
+import 'package:jiraya_app/src/exceptions/auth_exceptions.dart';
+import 'package:jiraya_app/src/modules/auth/data/interfaces/iauth_repository.dart';
+import 'package:jiraya_app/src/modules/auth/models/create_customer_model.dart';
+
+final class AuthRepository implements IAuthRepository {
+  @override
+  Future<Either<AuthException, void>> createCustomer(CreateCustomerModel newCustomer) async {
+    // TODO: implement createCustomer
+    throw UnimplementedError();
+  }
+}
