@@ -12,8 +12,9 @@ final class AuthRepository implements IAuthRepository {
   @override
   Future<Either<AuthException, CustomerModel>> createCustomer(CreateCustomerModel newCustomer) async {
     try {
-      final createdCustomer = await _datasource.createCustomer(newCustomer.toMap());
-      return right(CustomerModel.fromMap(createdCustomer));
+      final createdCustomerMap = await _datasource.createCustomer(newCustomer.toMap());
+      final createdCustomer = CustomerModel.fromMap(createdCustomerMap);
+      return right(createdCustomer);
     } on AuthException catch (e) {
       return left(e);
     } catch (e) {
