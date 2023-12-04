@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:jiraya_app/src/shared/app_colors.dart';
+import 'package:jiraya/src/shared/app_colors.dart';
 
 class LogoComponent extends StatefulWidget {
   const LogoComponent({super.key, required this.delayedTransition, this.text, this.title});

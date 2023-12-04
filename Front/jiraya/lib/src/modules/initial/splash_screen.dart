@@ -1,11 +1,7 @@
 import 'package:flutter/material.dart';
-<<<<<<< Updated upstream
-import 'package:jiraya_app/shared/app_colors.dart';
-=======
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:jiraya_app/src/shared/app_colors.dart';
-import 'package:jiraya_app/src/modules/initial/components/logo_component.dart';
->>>>>>> Stashed changes
+import 'package:jiraya/src/shared/app_colors.dart';
+import 'package:jiraya/src/modules/initial/components/logo_component.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -16,15 +12,6 @@ class SplashScreen extends StatefulWidget {
 
 class _SplashScreenState extends State<SplashScreen> {
   @override
-<<<<<<< Updated upstream
-  Widget build(BuildContext context) {
-    final height = MediaQuery.sizeOf(context).height;
-    final width = MediaQuery.sizeOf(context).width;
-    return Container(
-      height: height,
-      width: width,
-      color: AppColors.primaryColor(context),
-=======
   void initState() {
     _goToAuth();
     super.initState();
@@ -50,7 +37,6 @@ class _SplashScreenState extends State<SplashScreen> {
           title: Colors.white,
         ),
       ),
->>>>>>> Stashed changes
     );
   }
 }

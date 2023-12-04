@@ -1,4 +1,4 @@
-import 'package:jiraya_app/src/modules/auth/data/interfaces/iauth_datasource.dart';
+import 'package:jiraya/src/modules/auth/data/interfaces/iauth_datasource.dart';
 
 final class AuthDatasource implements IAuthDatasource {
   @override

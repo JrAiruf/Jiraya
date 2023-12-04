@@ -1,5 +1,5 @@
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:jiraya_app/src/modules/initial/splash_screen.dart';
+import 'package:jiraya/src/modules/initial/splash_screen.dart';
 
 class InitialModule extends Module {
   @override
