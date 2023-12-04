@@ -19,7 +19,7 @@ class _SplashScreenState extends State<SplashScreen> {
 
   _goToAuth() async {
     await Future.delayed(const Duration(seconds: 7));
-    Modular.to.pushNamed("/auth/");
+    Modular.to.navigate("/auth/");
   }
 
   @override
