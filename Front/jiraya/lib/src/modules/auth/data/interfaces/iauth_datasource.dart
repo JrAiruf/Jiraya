@@ -1,3 +1,3 @@
 abstract interface class IAuthDatasource {
-  Future<void> createCustomer(Map newCustomer);
+  Future<Map> createCustomer(Map newCustomer);
 }
