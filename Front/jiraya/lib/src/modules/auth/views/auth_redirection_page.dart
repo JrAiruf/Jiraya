@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
+import 'package:jiraya/src/modules/auth/view_models/controllers/auth_controller.dart';
 import 'package:jiraya/src/shared/app_colors.dart';
 import 'package:jiraya/src/modules/initial/components/logo_component.dart';
 
@@ -10,6 +11,7 @@ class AuthRedirectionPage extends StatefulWidget {
   State<AuthRedirectionPage> createState() => _AuthRedirectionPageState();
 }
 
+final _authController = Modular.get<AuthController>();
 
 class _AuthRedirectionPageState extends State<AuthRedirectionPage> {
   @override
@@ -33,7 +35,7 @@ class _AuthRedirectionPageState extends State<AuthRedirectionPage> {
               ),
               TextButton(
                 style: TextButton.styleFrom(),
-                onPressed: (){},
+                onPressed: () => _authController.defineRoute("./create_customer_page"),
                 child: const Text(
                   "Começar",
                   style: TextStyle(fontSize: 30, color: Colors.white),
