@@ -4,7 +4,7 @@ import 'package:jiraya/src/modules/auth/data/interfaces/app_cliente.dart';
 import 'package:jiraya/src/modules/auth/data/external/http_client.dart';
 import 'package:jiraya/src/modules/auth/data/interfaces/iauth_datasource.dart';
 import 'package:jiraya/src/modules/auth/data/interfaces/iauth_repository.dart';
-import 'package:jiraya/src/modules/auth/data/repositories/auth_reposiory.dart';
+import 'package:jiraya/src/modules/auth/data/repositories/auth_repository.dart';
 import 'package:jiraya/src/modules/auth/view_models/controllers/auth_controller.dart';
 import 'package:jiraya/src/modules/auth/view_models/controllers/create_customer_controller.dart';
 import 'package:jiraya/src/modules/auth/views/auth_redirection_page.dart';

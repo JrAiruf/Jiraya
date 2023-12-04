@@ -10,7 +10,7 @@ class CustomerModel {
   String phone;
   Address address;
   UserRole role = UserRole.customer;
-  
+
   CustomerModel({
     required this.id,
     required this.name,
@@ -27,7 +27,7 @@ class CustomerModel {
     };
   }
 
-  factory CustomerModel.fromMap(Map<String, dynamic> map) {
+  factory CustomerModel.fromMap(Map map) {
     return CustomerModel(
       id: map['id'] as String,
       name: map['name'] as String,
