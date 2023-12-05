@@ -19,6 +19,7 @@ usecaseContainer.InitProductOrder();
 usecaseContainer.InitProductImage();
 
 builder.Services.AddControllers();
+builder.Services.AddCors();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
