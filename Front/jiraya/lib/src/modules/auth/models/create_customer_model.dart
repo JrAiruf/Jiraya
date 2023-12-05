@@ -1,26 +1,21 @@
+import 'package:jiraya/src/modules/customer/models/address_model.dart';
+
 class CreateCustomerModel {
-  final String fullName;
-  final String phoneNumber;
-  final String neighborhood;
-  final String streetAddress;
-  final int addressNumber;
+  String? name;
+  String? phone;
+  Address? address;
 
   CreateCustomerModel({
-    required this.fullName,
-    required this.phoneNumber,
-    required this.neighborhood,
-    required this.streetAddress,
-    required this.addressNumber,
+    this.name,
+    this.phone,
+    this.address,
   });
 
   Map<String, dynamic> toMap() {
     return <String, dynamic>{
-      'fullName': fullName,
-      'phoneNumber': phoneNumber,
-      'neighborhood': neighborhood,
-      'streetAddress': streetAddress,
-      'addressNumber': addressNumber,
+      'name': name,
+      'phone': phone,
+      'address': address?.toMap(),
     };
   }
-
 }

@@ -1,5 +1,6 @@
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:jiraya/src/modules/auth/auth_module.dart';
+import 'package:jiraya/src/modules/customer/customer_module.dart';
 import 'package:jiraya/src/modules/initial/initial_module.dart';
 
 class AppModule extends Module {
@@ -7,5 +8,6 @@ class AppModule extends Module {
   void routes(RouteManager r) {
     r.module("/", module: InitialModule());
     r.module("/auth", module: AuthModule());
+    r.module("/customer", module: CustomerModule());
   }
 }
