@@ -4,4 +4,5 @@ abstract class BackendData {
 
 abstract class ApiRoutes {
   static const createCustomer = "${BackendData.apiUrl}customers";
+  static const createUser = "${BackendData.apiUrl}users/new-user";
 }

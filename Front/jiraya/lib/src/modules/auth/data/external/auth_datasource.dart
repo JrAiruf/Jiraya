@@ -23,4 +23,19 @@ final class AuthDatasource implements IAuthDatasource {
       throw UserCreationException("${AuthExceptionDetails.userNotCreated}: $e");
     }
   }
+  
+  @override
+  Future<Map> createUser(Map newUser) async{
+      try {
+      final response = await _client.post(ApiRoutes.createUser, newUser) as Response;
+      if (response.statusCode == 201) {
+        final responseBody = jsonDecode(response.body);
+        return responseBody;
+      } else {
+        return {};
+      }
+    } catch (e) {
+      throw UserCreationException("${AuthExceptionDetails.userNotCreated}: $e");
+    }
+  }
 }

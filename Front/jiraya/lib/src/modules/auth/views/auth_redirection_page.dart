@@ -28,10 +28,13 @@ class _AuthRedirectionPageState extends State<AuthRedirectionPage> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              const LogoComponent(
-                delayedTransition: false,
-                text: Colors.white,
-                title: Colors.white,
+              GestureDetector(
+                onLongPress: ()=> _authController.defineRoute("./create_user_page"),
+                child: const LogoComponent(
+                  delayedTransition: false,
+                  text: Colors.white,
+                  title: Colors.white,
+                ),
               ),
               TextButton(
                 style: TextButton.styleFrom(),
