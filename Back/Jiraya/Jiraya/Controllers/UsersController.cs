@@ -47,7 +47,7 @@ namespace Jiraya.API.Controllers
             {
                 if (exception is BaseException || exception is UserException)
                 {
-                    return BadRequest(exception.Message);
+                    return BadRequest(exception.Message.ToString());
                 }
                 else
                 {

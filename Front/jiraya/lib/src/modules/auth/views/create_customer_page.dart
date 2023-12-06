@@ -29,7 +29,7 @@ class _CreateCustomerPageState extends State<CreateCustomerPage> {
         bloc: _controller.createCustomerBloc,
         listener: (context, state) {
           if (state is CreateCustomerFailureState) {
-            _controller.statusSnackBar(context, state.message, AppColors.redPColor(context));
+            _controller.statusSnackBar(context, state.message, AppColors.errorColor(context));
           }
           if (state is CreateCustomerSuccessState) {
             final customer = state.customer;

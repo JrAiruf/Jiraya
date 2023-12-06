@@ -37,7 +37,6 @@ namespace Jiraya.API.Controllers
         }
 
         [HttpPost]
-        [Route("/new-customer")]
         public async Task<ActionResult> CreateCustomerAsync([FromBody] CreateCustomerDto customer)
         {
             try

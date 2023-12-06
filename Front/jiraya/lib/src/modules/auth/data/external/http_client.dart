@@ -17,7 +17,9 @@ final class HttpClient implements AppClient {
 
   @override
   Future<Response> post(String url, Object requestBody) async {
-    return await http.post(Uri.parse(url), body: jsonEncode(requestBody), headers: {"content-type": "application/json"});
+    return await http.post(Uri.parse(url), body: jsonEncode(requestBody), headers: {
+      'content-type': 'application/json',
+    });
   }
 
   @override

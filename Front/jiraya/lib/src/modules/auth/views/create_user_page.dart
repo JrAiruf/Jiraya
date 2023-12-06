@@ -29,7 +29,7 @@ class _CreateUserPageState extends State<CreateUserPage> {
         bloc: _controller.createUserBloc,
         listener: (context, state) {
           if (state is CreateUserFailureState) {
-            _controller.statusSnackBar(context, state.message, AppColors.redPColor(context));
+            _controller.statusSnackBar(context, state.message, AppColors.errorColor(context));
           }
           if (state is CreateUserSuccessState) {
             final user = state.user;

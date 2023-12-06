@@ -6,7 +6,7 @@ abstract class AuthException implements Exception {
   AuthException(this.message);
 }
 
-final class UserCreationException extends AuthException {
+class UserCreationException extends AuthException {
   UserCreationException(String message) : super(message);
 }
 

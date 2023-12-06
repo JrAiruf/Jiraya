@@ -20,7 +20,12 @@ class LoadingStateView extends StatelessWidget {
             color: Colors.white,
           ),
           SizedBox(height: 20),
-          Text("Processando...")
+          Text(
+            "Processando...",
+            style: TextStyle(
+              color: Colors.white,
+            ),
+          )
         ],
       ),
     );

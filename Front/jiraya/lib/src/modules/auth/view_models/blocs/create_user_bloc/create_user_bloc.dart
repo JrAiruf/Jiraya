@@ -1,4 +1,5 @@
 import 'package:bloc/bloc.dart';
+import 'package:jiraya/src/exceptions/auth_exceptions.dart';
 import 'package:jiraya/src/modules/auth/data/interfaces/iauth_repository.dart';
 import 'package:jiraya/src/modules/auth/models/create_user_model.dart';
 import 'package:jiraya/src/modules/user/models/user_model.dart';
@@ -20,7 +21,8 @@ class CreateUserBloc extends Bloc<CreateUserEvents, CreateUserStates> {
     state(CreateUserLoadingState());
     final result = await _repository.createUser(event.newUser);
     result.fold((left) {
-      return state(CreateUserFailureState(left.message));
+      var createUserException = left as UserCreationException;
+      return state(CreateUserFailureState(createUserException.message));
     }, (right) {
       return state(CreateUserSuccessState(right));
     });

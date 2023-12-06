@@ -52,27 +52,30 @@ class CreateCustomerController {
   }
 
   statusSnackBar(BuildContext context, String message, Color backgroundColor) {
-    ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-      duration: const Duration(seconds: 4),
-      content: Container(
-        decoration: BoxDecoration(
-          color: backgroundColor,
-          borderRadius: const BorderRadius.only(
-            topLeft: Radius.circular(10),
-            topRight: Radius.circular(10),
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        shape: const RoundedRectangleBorder(
+          borderRadius: BorderRadius.only(
+            topLeft: Radius.circular(15),
+            topRight: Radius.circular(15),
           ),
         ),
-        height: 70,
-        width: MediaQuery.sizeOf(context).width,
-        child: Center(
-          child: Text(
-            message,
-            style: const TextStyle(
-              color: Colors.white,
+        backgroundColor: backgroundColor,
+        duration: const Duration(seconds: 4),
+        content: SizedBox(
+          height: 70,
+          width: MediaQuery.sizeOf(context).width,
+          child: Center(
+            child: Text(
+              message,
+              textAlign: TextAlign.center,
+              style: const TextStyle(
+                color: Colors.white,
+              ),
             ),
           ),
         ),
       ),
-    ));
+    );
   }
 }

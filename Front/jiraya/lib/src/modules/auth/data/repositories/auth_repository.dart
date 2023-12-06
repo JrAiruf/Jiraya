@@ -19,8 +19,6 @@ final class AuthRepository implements IAuthRepository {
       return right(createdCustomer);
     } on AuthException catch (e) {
       return left(e);
-    } catch (e) {
-      throw Exception(e.toString());
     }
   }
 
@@ -30,10 +28,8 @@ final class AuthRepository implements IAuthRepository {
       final createdUserMap = await _datasource.createUser(newUser.toMap());
       final createdUser = UserModel.fromMap(createdUserMap);
       return right(createdUser);
-    } on AuthException catch (e) {
-      return left(e);
-    } catch (e) {
-      throw Exception(e.toString());
+    } on AuthException catch (exception) {
+      return left(exception);
     }
   }
 }

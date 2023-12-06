@@ -11,31 +11,31 @@ final class AuthDatasource implements IAuthDatasource {
   final AppClient _client;
   @override
   Future<Map> createCustomer(Map newCustomer) async {
-    try {
-      final response = await _client.post(ApiRoutes.createCustomer, newCustomer) as Response;
-      if (response.statusCode == 201) {
-        final responseBody = jsonDecode(response.body);
-        return responseBody;
-      } else {
-        return {};
-      }
-    } catch (e) {
-      throw UserCreationException("${AuthExceptionDetails.userNotCreated}: $e");
+  var currentData = {};
+    final response = await _client.post(ApiRoutes.createCustomer, newCustomer) as Response;
+    if (response.statusCode == 201) {
+      final responseBody = jsonDecode(response.body);
+      currentData = responseBody;
+      return currentData;
+    } else if (response.statusCode == 400) {
+      final errorMessage = response.body;
+      throw UserCreationException("${AuthExceptionDetails.userNotCreated}: $errorMessage");
     }
+    return currentData;
   }
-  
+
   @override
-  Future<Map> createUser(Map newUser) async{
-      try {
-      final response = await _client.post(ApiRoutes.createUser, newUser) as Response;
-      if (response.statusCode == 201) {
-        final responseBody = jsonDecode(response.body);
-        return responseBody;
-      } else {
-        return {};
-      }
-    } catch (e) {
-      throw UserCreationException("${AuthExceptionDetails.userNotCreated}: $e");
+  Future<Map> createUser(Map newUser) async {
+    var currentData = {};
+    final response = await _client.post(ApiRoutes.createUser, newUser) as Response;
+    if (response.statusCode == 201) {
+      final responseBody = jsonDecode(response.body);
+      currentData = responseBody;
+      return currentData;
+    } else if (response.statusCode == 400) {
+      final errorMessage = response.body;
+      throw UserCreationException("${AuthExceptionDetails.userNotCreated}: $errorMessage");
     }
+    return currentData;
   }
 }
