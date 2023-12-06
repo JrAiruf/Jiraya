@@ -33,7 +33,7 @@ class _CreateUserPageState extends State<CreateUserPage> {
           }
           if (state is CreateUserSuccessState) {
             final user = state.user;
-            Modular.to.navigate("/user/", arguments: user);
+            Modular.to.navigate("/users/", arguments: user);
           }
         },
         builder: (context, state) {
@@ -83,11 +83,11 @@ class _CreateUserPageState extends State<CreateUserPage> {
                             AppPropertyField(
                                 labelText: "Código de Segurança",
                                 controller: _controller.userCode,
-                                inputType: TextInputType.number,
+                                inputType: TextInputType.text,
                                 detailColor: AppColors.onSurfaceColor(context),
                                 validator: _controller.validator),
                             AppPropertyField(
-                                labelText: "Confirmar Códio",
+                                labelText: "Confirmar Código",
                                 controller: _controller.confirmationCode,
                                 inputType: TextInputType.text,
                                 detailColor: AppColors.onSurfaceColor(context),

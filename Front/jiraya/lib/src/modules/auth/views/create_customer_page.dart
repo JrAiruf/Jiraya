@@ -33,7 +33,7 @@ class _CreateCustomerPageState extends State<CreateCustomerPage> {
           }
           if (state is CreateCustomerSuccessState) {
             final customer = state.customer;
-            Modular.to.navigate("/customer/", arguments: customer);
+            Modular.to.navigate("/customers/", arguments: customer);
           }
         },
         builder: (context, state) {

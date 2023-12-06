@@ -42,7 +42,7 @@ class CreateCustomerController {
 
   String? numberValidator(String? value) {
     final number = int.tryParse(value ?? "-2");
-    if (value == null || value.isEmpty) {
+    if (number == null || number.toString().isEmpty) {
       return "Por favor, preencha o campo acima";
     }
     if (number == -2) {
