@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_modular/flutter_modular.dart';
+import 'package:jiraya/src/modules/user/view_models/controllers/user_controller.dart';
 import 'package:jiraya/src/modules/user/views/components/card_options_component.dart';
 import 'package:jiraya/src/modules/user/views/components/home_logo_component.dart';
 import 'package:jiraya/src/shared/app_colors.dart';
@@ -9,6 +11,8 @@ class OptionsPageView extends StatefulWidget {
   @override
   State<OptionsPageView> createState() => _OptionsPageViewState();
 }
+
+final _controller = Modular.get<UserController>();
 
 class _OptionsPageViewState extends State<OptionsPageView> {
   @override
@@ -25,6 +29,7 @@ class _OptionsPageViewState extends State<OptionsPageView> {
             const HomeLogoComponent(delayedTransition: false, title: ""),
             const SizedBox(height: 10),
             CardOptionsComponent(
+              onTap: () => _controller.defineRoute("/products/create_product_page"),
               title: "Criar Novo Produto",
               content: '''Os produtos cadastrados poderão ser utilizados para realizar promoções e novas publicações.Eles também aparecerão no menu de escolha do cliente.''',
               height: height * 0.13,
