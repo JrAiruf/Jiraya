@@ -16,6 +16,8 @@ class ProductDatasource implements IProductsDatasource {
     final response = await _client.post(ApiRoutes.createProduct, product) as Response;
     if (response.statusCode == 201) {
       currentData = jsonDecode(response.body);
+      final ingredients = currentData["ingredients"] as List;
+      currentData["ingredients"] = ingredients.map((items) => items.toString()).toList();
       return currentData;
     } else if (response.statusCode == 400) {
       final errorMessage = response.body;
