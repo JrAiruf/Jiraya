@@ -11,15 +11,21 @@ class CreateProductBloc extends Bloc<CreateProductEvents, CreateProductStates> {
   CreateProductBloc(IProductsRepository repository)
       : _repository = repository,
         super(CreateProductInitialState()) {
-    on<CreateProductEvent>((event, emit) {
-      // TODO: implement event handler
-    });
+    on<CreateProductEvent>(_mapCreateProductEventToState);
   }
 
   final IProductsRepository _repository;
 
   void _mapCreateProductEventToState(CreateProductEvent event, Emitter<CreateProductStates> state) async {
     state(CreateProductLoadingState());
-    // final result = 
+    final result = await _repository.createProduct(event.newProduct);
+    result.fold(
+      (left) => state(
+        CreateProductFailureState(left.message),
+      ),
+      (right) => state(
+        CreateProductSuccessState(right),
+      ),
+    );
   }
 }

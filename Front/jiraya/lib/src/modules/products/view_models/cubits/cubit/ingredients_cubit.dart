@@ -1,12 +1,12 @@
 import 'package:bloc/bloc.dart';
-import 'package:meta/meta.dart';
 
 class IngredientsCubit extends Cubit<List<String>> {
   IngredientsCubit() : super([]);
 
   void saveIngredient(String newIngredient) {
-    state.clear();
-    state.add(newIngredient);
-    emit(state);
+    final ingredients = <String>[];
+    state.insert(state.length, newIngredient);
+    ingredients.addAll(state);
+    emit(ingredients);
   }
 }

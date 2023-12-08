@@ -98,7 +98,7 @@ class _CreateUserPageState extends State<CreateUserPage> {
                     ),
                     const Spacer(),
                     AppElavatedButton(
-                      onTap: _controller.createNewUser,
+                      onTap: () => _controller.createNewUser(context),
                       primaryColor: Colors.white,
                       height: height,
                       width: width,

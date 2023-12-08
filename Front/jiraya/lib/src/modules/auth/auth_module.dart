@@ -1,7 +1,7 @@
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:jiraya/src/modules/auth/data/external/auth_datasource.dart';
-import 'package:jiraya/src/modules/auth/data/interfaces/app_cliente.dart';
-import 'package:jiraya/src/modules/auth/data/external/http_client.dart';
+import 'package:jiraya/src/shared/services/app_cliente.dart';
+import 'package:jiraya/src/shared/services/http_client.dart';
 import 'package:jiraya/src/modules/auth/data/interfaces/iauth_datasource.dart';
 import 'package:jiraya/src/modules/auth/data/interfaces/iauth_repository.dart';
 import 'package:jiraya/src/modules/auth/data/repositories/auth_repository.dart';

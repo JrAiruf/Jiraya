@@ -51,7 +51,7 @@ class CreateCustomerController {
     return null;
   }
 
-  statusSnackBar(BuildContext context, String message, Color backgroundColor) {
+  void statusSnackBar(BuildContext context, String message, Color backgroundColor) {
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
         shape: const RoundedRectangleBorder(

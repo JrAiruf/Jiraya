@@ -1,9 +1,9 @@
 // ignore_for_file: constant_identifier_names
 
-abstract class AuthException implements Exception {
-  final String message;
+import 'package:jiraya/src/exceptions/base_exception.dart';
 
-  AuthException(this.message);
+abstract class AuthException extends BaseException {
+  AuthException(String message) : super(message);
 }
 
 class UserCreationException extends AuthException {

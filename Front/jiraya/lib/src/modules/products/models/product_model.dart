@@ -1,25 +1,32 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 class ProductModel {
   String? id;
   String? name;
   double? price;
   List<String>? ingredients;
-}
 
+  ProductModel({
+    this.id,
+    this.name,
+    this.price,
+    this.ingredients,
+  });
 
-/* 
-{
-  "id": "64cff53d-ee8d-4e76-abcb-08dbf6793f30",
-  "name": "X-Bacon",
-  "price": 23.56,
-  "ingredients": [
-    "Pão de hambúrguer",
-    "Hambúrguer",
-    "Molho",
-    "Alface",
-    "Tomate",
-    "Milho",
-    "Bacon",
-    "Ovo"
-  ]
+  Map<String, dynamic> toMap() {
+    return <String, dynamic>{
+      'id': id,
+      'name': name,
+      'price': price,
+      'ingredients': ingredients,
+    };
+  }
+
+  factory ProductModel.fromMap(Map map) {
+    return ProductModel(
+      id: map['id'] != null ? map['id'] as String : null,
+      name: map['name'] != null ? map['name'] as String : null,
+      price: map['price'] != null ? map['price'] as double : null,
+      ingredients: map['ingredients'],
+    );
+  }
 }
- */

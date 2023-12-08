@@ -2,6 +2,7 @@ import "package:flutter/material.dart";
 import "package:flutter_modular/flutter_modular.dart";
 import "package:jiraya/src/modules/auth/models/create_user_model.dart";
 import "package:jiraya/src/modules/auth/view_models/blocs/create_user_bloc/create_user_bloc.dart";
+import "package:jiraya/src/shared/app_colors.dart";
 
 class CreateUserController {
   final userName = TextEditingController();
@@ -11,7 +12,8 @@ class CreateUserController {
   final createUserFormKey = GlobalKey<FormState>();
 
   void back() => Modular.to.pop();
-  void createNewUser() {
+
+  void createNewUser(BuildContext context) {
     createUserFormKey.currentState?.validate();
     if (createUserFormKey.currentState!.validate()) {
       createUserFormKey.currentState?.save();
@@ -19,7 +21,13 @@ class CreateUserController {
         name: userName.text,
         code: userCode.text,
       );
-      createUserBloc.add(CreateUserEvent(newUser));
+      userCode.text == confirmationCode.text
+          ? createUserBloc.add(CreateUserEvent(newUser))
+          : statusSnackBar(
+              context,
+              "Os códigos de usuário são divergentes. Informe o mesmo código de usuário.",
+              AppColors.redPColor(context),
+            );
     }
   }
 

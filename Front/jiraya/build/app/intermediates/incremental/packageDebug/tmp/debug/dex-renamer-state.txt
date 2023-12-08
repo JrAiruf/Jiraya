@@ -1,4 +1,4 @@
-#Thu Dec 07 07:15:46 BRT 2023
+#Fri Dec 08 13:07:02 BRT 2023
 base.0=C\:\\Users\\DELL\\Documents\\Jiraya\\Front\\jiraya\\build\\app\\intermediates\\dex\\debug\\mergeDexDebug\\classes.dex
 path.0=classes.dex
 renamed.0=classes.dex

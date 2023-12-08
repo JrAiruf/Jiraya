@@ -1,5 +1,5 @@
 import 'package:dartz/dartz.dart';
-import 'package:jiraya/src/exceptions/auth_exceptions.dart';
+import 'package:jiraya/src/exceptions/base_exception.dart';
 import 'package:jiraya/src/modules/auth/data/interfaces/iauth_datasource.dart';
 import 'package:jiraya/src/modules/auth/data/interfaces/iauth_repository.dart';
 import 'package:jiraya/src/modules/auth/models/create_customer_model.dart';
@@ -12,23 +12,23 @@ final class AuthRepository implements IAuthRepository {
 
   final IAuthDatasource _datasource;
   @override
-  Future<Either<AuthException, CustomerModel>> createCustomer(CreateCustomerModel newCustomer) async {
+  Future<Either<BaseException, CustomerModel>> createCustomer(CreateCustomerModel newCustomer) async {
     try {
       final createdCustomerMap = await _datasource.createCustomer(newCustomer.toMap());
       final createdCustomer = CustomerModel.fromMap(createdCustomerMap);
       return right(createdCustomer);
-    } on AuthException catch (e) {
+    } on BaseException catch (e) {
       return left(e);
     }
   }
 
   @override
-  Future<Either<AuthException, UserModel>> createUser(CreateUserModel newUser) async {
+  Future<Either<BaseException, UserModel>> createUser(CreateUserModel newUser) async {
     try {
       final createdUserMap = await _datasource.createUser(newUser.toMap());
       final createdUser = UserModel.fromMap(createdUserMap);
       return right(createdUser);
-    } on AuthException catch (exception) {
+    } on BaseException catch (exception) {
       return left(exception);
     }
   }

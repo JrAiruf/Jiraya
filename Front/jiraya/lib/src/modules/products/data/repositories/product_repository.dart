@@ -1,3 +1,6 @@
+import 'package:dartz/dartz.dart';
+import 'package:jiraya/src/exceptions/base_exception.dart';
+import 'package:jiraya/src/exceptions/product_exceptions.dart';
 import 'package:jiraya/src/modules/products/data/interfaces/iproducts_datasource.dart';
 import 'package:jiraya/src/modules/products/data/interfaces/iproducts_repository.dart';
 import 'package:jiraya/src/modules/products/models/create_product_model.dart';
@@ -8,8 +11,16 @@ class ProductRepository implements IProductsRepository {
 
   final IProductsDatasource _datasource;
   @override
-  Future<ProductModel> createProduct(CreateProductModel product) {
-    // TODO: implement createProduct
-    throw UnimplementedError();
+  Future<Either<BaseException, ProductModel>> createProduct(CreateProductModel product) async {
+    try {
+      final createdProduct = await _datasource.createProduct(product.toMap());
+      if (createdProduct["id"] != null) {
+        return right(ProductModel.fromMap(createdProduct));
+      } else {
+        return left(ProductCreationException(ProductExceptionDetails.productNotCreated));
+      }
+    } on BaseException catch (exception) {
+      return left(exception);
+    }
   }
 }
