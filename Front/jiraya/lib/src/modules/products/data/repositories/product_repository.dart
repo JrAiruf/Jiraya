@@ -23,4 +23,15 @@ class ProductRepository implements IProductsRepository {
       return left(exception);
     }
   }
+
+  @override
+  Future<Either<BaseException, List<ProductModel>>> getAllProducts() async {
+    try {
+      final list = await _datasource.getAllProducts();
+      final productsList = list.map((productMap) => ProductModel.fromMap(productMap)).toList();
+      return right(productsList);
+    } on BaseException catch (exception) {
+      return left(exception);
+    }
+  }
 }

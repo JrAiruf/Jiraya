@@ -5,4 +5,5 @@ import 'package:jiraya/src/modules/products/models/product_model.dart';
 
 abstract interface class IProductsRepository {
   Future<Either<BaseException, ProductModel>> createProduct(CreateProductModel product);
+  Future<Either<BaseException, List<ProductModel>>> getAllProducts();
 }

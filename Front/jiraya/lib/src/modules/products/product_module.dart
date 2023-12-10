@@ -1,4 +1,6 @@
 import 'package:flutter_modular/flutter_modular.dart';
+import 'package:jiraya/src/modules/products/view_models/blocs/get_products_bloc/get_products_bloc.dart';
+import 'package:jiraya/src/modules/products/views/user_products_page.dart';
 import 'package:jiraya/src/shared/services/http_client.dart';
 import 'package:jiraya/src/shared/services/app_cliente.dart';
 import 'package:jiraya/src/modules/products/data/datasource/product_datasource.dart';
@@ -17,7 +19,8 @@ class ProductModule extends Module {
   void routes(RouteManager r) {
     super.routes(r);
     r.child("/create_product_page", child: (_) => const CreateProductPage());
-    r.child("/user_product_page", child: (_) => const UserProductPage());
+    r.child("/user_product_page", child: (_) => UserProductPage(product: r.args.data));
+    r.child("/user_products_page", child: (_) => const UserProductsPage());
     r.child("/products_list_page", child: (_) => const ProductsListPage());
   }
 
@@ -28,6 +31,7 @@ class ProductModule extends Module {
     i.add<IProductsDatasource>(ProductDatasource.new);
     i.add<IProductsRepository>(ProductRepository.new);
     i.add<CreateProductBloc>(CreateProductBloc.new);
+    i.add<GetProductsBloc>(GetProductsBloc.new);
     i.add<IngredientsCubit>(IngredientsCubit.new);
     i.add<ProductsController>(ProductsController.new);
   }

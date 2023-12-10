@@ -41,7 +41,7 @@ class _CreateProductPageState extends State<CreateProductPage> {
             _controller.statusSnackBar(context, state.message, AppColors.errorColor(context));
           }
           if (state is CreateProductSuccessState) {
-            Modular.to.pushNamed("./user_product_page", arguments: state.product);
+            Modular.to.pushReplacementNamed("./user_product_page", arguments: state.product);
           }
         },
         builder: (context, state) {
@@ -68,7 +68,7 @@ class _CreateProductPageState extends State<CreateProductPage> {
                   Text(
                     "Criar Novo Produto",
                     style: TextStyle(
-                      color: AppColors.redPColor(context),
+                      color: AppColors.onSurfaceColor(context),
                       fontSize: 35,
                       fontWeight: FontWeight.w400,
                     ),
@@ -80,8 +80,8 @@ class _CreateProductPageState extends State<CreateProductPage> {
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(15),
                       side: BorderSide(
-                        width: 0.5,
-                        color: AppColors.redPColor(context),
+                        width: 0.3,
+                        color: AppColors.onSurfaceColor(context),
                       ),
                     ),
                     child: SizedBox(
@@ -94,16 +94,30 @@ class _CreateProductPageState extends State<CreateProductPage> {
                           child: Column(
                             children: [
                               TextFormField(
-                                decoration: const InputDecoration(
-                                  label: Text("Nome do produto"),
+                                decoration: InputDecoration(
+                                  focusedBorder: UnderlineInputBorder(
+                                    borderSide: BorderSide(
+                                      color: AppColors.onSurfaceColor(context),
+                                    ),
+                                  ),
+                                  labelStyle: TextStyle(color: AppColors.onSurfaceColor(context)),
+                                  label: const Text("Nome do produto"),
                                 ),
                                 controller: _controller.productName,
+                                validator: _controller.validator,
                               ),
                               TextFormField(
-                                decoration: const InputDecoration(
-                                  label: Text("Valor"),
+                                decoration: InputDecoration(
+                                  focusedBorder: UnderlineInputBorder(
+                                    borderSide: BorderSide(
+                                      color: AppColors.onSurfaceColor(context),
+                                    ),
+                                  ),
+                                  labelStyle: TextStyle(color: AppColors.onSurfaceColor(context)),
+                                  label: const Text("Valor"),
                                 ),
                                 controller: _controller.productPrice,
+                                validator: _controller.validator,
                               ),
                               const Spacer(),
                               AppPropertyField(
@@ -118,7 +132,7 @@ class _CreateProductPageState extends State<CreateProductPage> {
                               const Spacer(),
                               AppButton(
                                 onTap: _controller.saveIngredient,
-                                primaryColor: AppColors.redPColor(context),
+                                primaryColor: AppColors.onSurfaceColor(context),
                                 height: height * 0.055,
                                 width: width * 0.55,
                                 radius: 30,
@@ -133,7 +147,7 @@ class _CreateProductPageState extends State<CreateProductPage> {
                       ),
                     ),
                   ),
-                  const SizedBox(height: 35),
+                  SizedBox(height: height * 0.06),
                   Align(
                     alignment: Alignment.center,
                     child: AppButton(

@@ -68,6 +68,7 @@ flutter:
     - assets/images/card_image.jpg
     - assets/images/new_event.jpg
     - assets/images/events_img.jpg
+    - assets/images/burguer_photo.jpg
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

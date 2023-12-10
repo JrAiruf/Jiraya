@@ -25,4 +25,22 @@ class ProductDatasource implements IProductsDatasource {
     }
     return currentData;
   }
+
+  @override
+  Future<List<Map>> getAllProducts() async {
+    var productsList = <Map>[];
+    final response = await _client.get(ApiRoutes.getProducts) as Response;
+    if (response.statusCode == 200) {
+      final list = jsonDecode(response.body);
+      for (var productMap in list) {
+        final ingredients = productMap["ingredients"] as List;
+        productMap["ingredients"] = ingredients.map((items) => items.toString()).toList();
+        productsList.add(productMap);
+      }
+      return productsList;
+    } else {
+      final errorMessage = response.body;
+      throw ProductsRetrieveException("${ProductExceptionDetails.productsNotRetrieved}: $errorMessage");
+    }
+  }
 }

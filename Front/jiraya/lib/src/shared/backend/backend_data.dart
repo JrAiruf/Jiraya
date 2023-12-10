@@ -8,4 +8,5 @@ abstract class ApiRoutes {
   static const createUser = "${BackendData.apiUrl}users/new-user";
   //PRODUCTS
   static const createProduct = "${BackendData.apiUrl}products";
+  static const getProducts = "${BackendData.apiUrl}products";
 }

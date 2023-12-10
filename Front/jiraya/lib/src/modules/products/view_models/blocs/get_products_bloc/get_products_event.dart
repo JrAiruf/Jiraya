@@ -1,4 +1,5 @@
 part of 'get_products_bloc.dart';
 
 @immutable
-sealed class GetProductsEvent {}
+sealed class GetProductsEvents {}
+class GetProductsEvent extends GetProductsEvents {}

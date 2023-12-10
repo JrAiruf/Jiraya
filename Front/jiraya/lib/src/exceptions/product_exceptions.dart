@@ -9,7 +9,11 @@ abstract class ProductException extends BaseException {
 class ProductCreationException extends ProductException {
   ProductCreationException(String message) : super(message);
 }
+class ProductsRetrieveException extends ProductException {
+  ProductsRetrieveException(String message) : super(message);
+}
 
 abstract class ProductExceptionDetails {
   static const String productNotCreated = "Não foi possível criar um novo produto";
+  static const String productsNotRetrieved = "Não foi possível obter os produtos no momento";
 }

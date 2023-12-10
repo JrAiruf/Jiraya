@@ -1,5 +1,6 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
+import 'package:flutter_modular/flutter_modular.dart';
 import 'package:jiraya/src/modules/user/views/components/card_options_component.dart';
 import 'package:jiraya/src/modules/user/views/components/home_logo_component.dart';
 import 'package:jiraya/src/shared/app_colors.dart';
@@ -29,6 +30,9 @@ class _InitialPageViewState extends State<InitialPageView> {
             HomeLogoComponent(delayedTransition: false, title: "Olá, ${widget.userName}"),
             const SizedBox(height: 10),
             CardOptionsComponent(
+              onTap: () {
+                Modular.to.pushNamed("/products/user_products_page");
+              },
               title: "Meus Produtos",
               content: '''Todos os produtos cadastrados até agora. Cadastre novos produtos, e os use para realizar promoções e novas publicações.''',
               height: height * 0.13,
