@@ -48,7 +48,7 @@ namespace Jiraya.API.Controllers
                     await _uploadProductImage.Handle(productImage);
                 }
                 await _createProduct.Handle(newProduct);
-                return Ok(newProduct.AsDto());
+                return StatusCode(201,newProduct.AsDto());
             }
             catch (AppException exception)
             {
