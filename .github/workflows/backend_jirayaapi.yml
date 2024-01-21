@@ -26,13 +26,13 @@ jobs:
         run: dotnet build --configuration Release
 
       - name: dotnet publish
-        run: dotnet publish -c Release -o JrAiruf/Jiraya/Back/Jiraya/Jiraya/Program.cs
+        run: dotnet publish -c Release -o JrAiruf/Jiraya/Back/Jiraya/Jiraya/
         
       - name: dotnet publish
         run: dotnet tool install -g dotnet-ef --version 7.0.0
         
       - name: dotnet adding migration
-        run: dotnet ef migrations bundle --runtime linux-x64 -p DotNetCoreSqlDb/DotNetCoreSqlDb.csproj -o JrAiruf/Jiraya/Back/Jiraya/Jiraya/Program.cs
+        run: dotnet ef migrations bundle --runtime linux-x64 -p DotNetCoreSqlDb/DotNetCoreSqlDb.csproj -o JrAiruf/Jiraya/Back/Jiraya/Jiraya/
         
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v3
