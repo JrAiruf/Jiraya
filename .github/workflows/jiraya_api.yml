@@ -1,0 +1,32 @@
+on:
+  push:
+    branches:
+      - backend
+  pull_request:
+    types: [opened, synchronize, reopened, closed]
+    branches:
+
+  env:
+    AZURE_WEBAPP_NAME: jiraya_api
+    WORKING_DIRECTORY: backend/jiraya_api
+
+  steps:
+    - uses: actions/checkout@v4
+    - name: Setup .NET Core
+      uses: actions/setup-dotnet@v4
+      with:
+        dotnet-version: '7.0'
+    - name: Install dependencies
+      run: dotnet restore
+
+    - name: Build
+      run: dotnet build --configuration Release --no-restore
+
+    - name: dotnet publish
+      run: dotnet publish --configuration Release --output 'jiraya_api'
+    - name: 'Deploy to Azure WebApp'
+        uses: azure/webapps-deploy@v4
+        with:
+          app-name: ${{ env.AZURE_WEBAPP_NAME }}
+          publish-profile: ${{ secrets.JIRAYA_API_SECRET }}
+          package: '${{ env.WORKING_DIRECTORY }}/jiraya_api'
