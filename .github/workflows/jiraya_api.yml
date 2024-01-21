@@ -29,8 +29,8 @@ jobs:
         run: dotnet build --configuration Release --no-restore
 
       - name: dotnet publish
-        run: dotnet publish --configuration Release --output 'jiraya_api'
-        
+        run: dotnet publish --configuration Release --output jiraya_api
+
   deploy:
     runs-on: ubuntu-latest
     needs: build
